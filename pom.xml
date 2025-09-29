@@ -30,53 +30,6 @@
         <module>orders-service</module>
     </modules>
 
-    <!-- Centralized dependency management for all modules -->
-    <dependencyManagement>
-        <dependencies>
-            <!-- Spring Boot Web for creating APIs -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-            </dependency>
-            <!-- Spring Boot AMQP for RabbitMQ -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-amqp</artifactId>
-            </dependency>
-            <!-- Spring Boot Data JPA for database access -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-jpa</artifactId>
-            </dependency>
-            <!-- Spring Boot Validation -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-validation</artifactId>
-            </dependency>
-            <!-- PostgreSQL Driver -->
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <scope>runtime</scope>
-            </dependency>
-             <!-- Spring Boot Actuator for metrics and health checks -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-actuator</artifactId>
-            </dependency>
-            <!-- Micrometer for Prometheus metrics -->
-            <dependency>
-                <groupId>io.micrometer</groupId>
-                <artifactId>micrometer-registry-prometheus</artifactId>
-            </dependency>
-        <!-- Lombok for reducing boilerplate code -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <scope>provided</scope> <!-- Lombok is needed at compile time, not runtime -->
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    
 
 </project>

@@ -14,17 +14,23 @@ O usuário está utilizando este projeto para aprender sobre Java, Spring Boot e
 - As explicações devem ser didáticas.
 - Devem ser feitas analogias com os conceitos do ecossistema PHP/Laravel para facilitar o entendimento.
 
-## Status da Sessão (23/09/2025)
+## Status da Sessão (28/09/2025)
 
 - **Branch Ativa:** `feature/2025/09/orders-service`
 - **Última Ação Concluída:**
-    - A dependência do Project Lombok foi adicionada ao `pom.xml` principal e ao `orders-service/pom.xml` para reduzir o boilerplate code.
-    - A entidade JPA `Order` foi criada em `orders-service/src/main/java/com/ecommerce/orders/domain/Order.java`, contendo os campos `id` (String/UUID), `userId` (String), `status` (String) e `total` (BigDecimal).
+    - Implementado o fluxo completo de criação de pedidos (`POST /api/orders`).
+    - Criada a entidade `OrderItem` e estabelecido o relacionamento `One-to-Many` com a entidade `Order`.
+    - Implementado o padrão DTO (Data Transfer Object) para requisição e resposta, desacoplando a API da camada de persistência.
+    - Criadas as camadas de `Controller`, `Service`, `Repository` e `Mapper` para a funcionalidade de pedidos.
+    - Corrigido o `pom.xml` pai para gerenciar corretamente as dependências do Spring Boot.
+    - Configurada a conexão com o banco de dados no `application.properties`.
+    - A aplicação foi executada e o endpoint de criação de pedido foi testado com sucesso via Postman.
 - **Próximo Passo Planejado:**
-    - Iniciar a definição de como os itens de um pedido (`items`) serão representados. As opções incluem:
-        1.  Criar uma nova entidade JPA `OrderItem` com um relacionamento `OneToMany` com `Order`.
-        2.  Armazenar os itens como um tipo de dado JSONB diretamente na tabela `orders` (usando `@Column(columnDefinition = "jsonb")`).
-    - Discutiremos as vantagens e desvantagens de cada abordagem antes de implementar.
+    - Adicionar validações ao DTO de requisição (`CreateOrderRequestDTO`) usando `jakarta.validation.constraints` (ex: `@NotBlank`, `@NotEmpty`) para garantir a integridade dos dados de entrada.
+    - Implementar um tratamento de erros de validação customizado (`@ControllerAdvice`) para retornar respostas de erro padronizadas e claras para o cliente da API.
 
 ## Condição de Checkpoint
 - Ao final de cada sessão de estudo, o usuário pode solicitar um "checkpoint". Neste momento, o `GEMINI_CONTEXT.md` será atualizado com o progresso, o próximo passo detalhado e a data da sessão.
+
+## Convenções de Commit
+- As mensagens de commit devem ser escritas em Português do Brasil, utilizando termos comuns da programação em inglês quando apropriado (ex: "feat", "fix", "refactor").
